@@ -33,9 +33,7 @@ def predict(data: PredictionInput):
         
         raw_prediction = pipeline.predict(input_df)[0]
         
-        # Agar aapka model pounds (lbs) mein train tha to usay kg mein convert karein:
-        # weight_kg = raw_prediction * 0.45359237
-        # Agar already kg mein train hai to direct raw_prediction use karein
+        
         weight_kg = raw_prediction * 0.45359237 if raw_prediction > 100 else raw_prediction
 
         return {
